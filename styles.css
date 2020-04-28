@@ -1,0 +1,26 @@
+body {
+    background-color: palevioletred;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+  }
+  
+  .allPies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .pie {
+    border: 2px dotted tomato;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .pie:hover {
+    box-shadow: 10px 10px 10px 10px salmon;
+  }
+  
+  .pie img {
+    width: 400px;
+  }
