@@ -5,7 +5,7 @@ const pies = [
       crust: 'Lattice',
       price: 30,
       imageUrl: 'https://storcpdkenticomedia.blob.core.windows.net/media/recipemanagementsystem/media/recipe-media-files/recipes/retail/x17/17607-caramel-apple-pie-760x580.jpg?ext=.jpg',
-      owner: 'Luke',
+      owner: 'luke',
       aLaMode: true
     },
     {
@@ -14,7 +14,7 @@ const pies = [
       crust: 'Basic Flaky',
       price: 3,
       imageUrl: 'https://www.mydarlingvegan.com/wp-content/uploads/2012/11/PecanPie9.jpg',
-      owner: 'Pichael',
+      owner: 'pichael',
       aLaMode: false
     },
     {
@@ -23,7 +23,7 @@ const pies = [
       crust: 'Crumb',
       price: 400,
       imageUrl: 'https://i.pinimg.com/originals/36/f6/5d/36f65d03ccda6f3e5e1b982ad3bda9c8.png',
-      owner: 'Matt',
+      owner: 'matt',
       aLaMode: true
     },
     {
@@ -32,7 +32,7 @@ const pies = [
       crust: 'Meat Crust',
       price: 1,
       imageUrl: 'https://culinaryginger.com/wp-content/uploads/Minced-Beef-and-Onion-Pies-10-480x480.jpg',
-      owner: 'Luke',
+      owner: 'luke',
       aLaMode: true
     },
     {
@@ -41,7 +41,7 @@ const pies = [
       crust: 'regular',
       price: 6,
       imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg',
-      owner: 'Pichael',
+      owner: 'pichael',
       aLaMode: true
     },
     {
@@ -50,7 +50,7 @@ const pies = [
       crust: 'Normal',
       price: 2147483647,
       imageUrl: 'https://assets.kraftfoods.com/recipe_images/opendeploy/54036_640x428.jpg',
-      owner: 'Matt',
+      owner: 'matt',
       aLaMode: true
     },
     {
@@ -85,9 +85,28 @@ const pies = [
   
     printToDom('#pieContainer', domString);
   }
+
+  const filterPiesEvent = (event) => {
+      const buttonId = event.target.id;
+      const tempPieCollection = [];
+
+      for (let i = 0; i < pies.length; i++) {
+          if (pies[i].owner === buttonId) {
+              tempPieCollection.push(pies[i]);
+          }
+      }
+      buildPies(tempPieCollection);
+  } 
   
+  const clickEvents = () => {
+    document.querySelector('#luke').addEventListener('click', filterPiesEvent);
+    document.querySelector('#pichael').addEventListener('click', filterPiesEvent);
+    document.querySelector('#matt').addEventListener('click', filterPiesEvent);
+  }
+
   const init = () => {
     buildPies(pies);
+    clickEvents();
   }
   
   init();
